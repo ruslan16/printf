@@ -48,7 +48,7 @@ int     ft_printf(const char *format, ...)
 
 int     main ()
 {
-    ft_printf("fdsfdsf %d \n %s \n " , 213, "fsdfs");
-    printf("fsd %% \n");
+    ft_printf("num %d \n", 213698745);
+    printf("num %d \n", 213698745);
     return (0);
 }
