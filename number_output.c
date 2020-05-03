@@ -1,4 +1,4 @@
-#include "libft/includes/libft.h"
+#include "ft_printf.h"
 
 void	ft_print_num(intmax_t n)
 {
@@ -35,6 +35,11 @@ int		ft_long_int(intmax_t n)
 		ft_putstr("Error");
 		return (0);
 	}
+	if (n >= -2147483648 && n <= 2147483648)
+	{
+		ft_putstr("Error");
+		return (0);
+	}
 	else
 		ft_print_num(n);
 	return (0);
@@ -42,7 +47,6 @@ int		ft_long_int(intmax_t n)
 
 int		ft_unsigned_int(intmax_t n)
 {
-	ft_putnbr(n);
 	if (n >= 2147483648 || n <= -2147483648)
 	{
 		ft_putstr("Error");
