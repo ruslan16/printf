@@ -6,7 +6,7 @@
 /*   By: etristan <etristan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/03 21:54:23 by etristan          #+#    #+#             */
-/*   Updated: 2020/05/03 21:59:38 by etristan         ###   ########.fr       */
+/*   Updated: 2020/05/03 23:09:39 by etristan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,7 @@ int		ft_int(intmax_t n);
 int		ft_long_int(intmax_t n);
 int		ft_unsigned_int(intmax_t n);
 int		ft_printf(const char *format, ...);
+
+void	ft_hex_conv(long decimal);
 
 #endif

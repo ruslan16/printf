@@ -57,5 +57,6 @@ int	main ()
 {
 	ft_printf("%u \n " , -2147483647);
 	printf("\n%u \n", -2147483647);
+	ft_hex_conv(200);
 	return (0);
 }
