@@ -1,6 +1,6 @@
 #include "ft_printf.h"
 
-void	ft_hex_conv(long decimal)
+void	ft_hex_conv(intmax_t decimal)
 {
 	long	quotient;
 	long	remainder;
@@ -21,7 +21,6 @@ void	ft_hex_conv(long decimal)
 		quotient = quotient / 16;				//step 4
 	}
 	i = j;
-	ft_putstr("0x");
 	while (i >= 0)
 		ft_putchar(hexadecimal[i--]);
 	ft_putchar('\n');

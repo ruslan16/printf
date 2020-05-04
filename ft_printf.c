@@ -41,6 +41,11 @@ int	ft_printf(const char *format, ...)
 					x = va_arg(ap, long);
 					ft_long_int(x);
 				}
+				else if(format[i] == 'x')
+				{
+					x = va_arg(ap, int);
+					ft_hexadecimal(x);
+				}
 			}
 		if (format[i] == '\n')
 			ft_putchar('\n');
@@ -55,8 +60,7 @@ int	ft_printf(const char *format, ...)
 
 int	main ()
 {
-	ft_printf("%u \n " , -2147483647);
-	printf("\n%u \n", -2147483647);
-	ft_hex_conv(200);
+	ft_printf("%x \n " , 2147483648);
+	printf("\n%X \n", -1);
 	return (0);
 }

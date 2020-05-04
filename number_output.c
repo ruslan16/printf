@@ -30,12 +30,12 @@ int		ft_int(intmax_t n)
 
 int		ft_long_int(intmax_t n)
 {
-	if (n >= 9223372036854775807 || n <= -9223372036854775807)
+	if (n > 9223372036854775807 || n < -9223372036854775807)
 	{
 		ft_putstr("Error");
 		return (0);
 	}
-	if (n >= -2147483648 && n <= 2147483648)
+	if (n > -2147483648 && n < 2147483648)
 	{
 		ft_putstr("Error");
 		return (0);
