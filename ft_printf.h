@@ -29,10 +29,12 @@ int		ft_unsigned_int(intmax_t n);
 int		ft_printf(const char *format, ...);
 
 void	ft_hex_conv(intmax_t decimal);
-void	ft_hexi_low_conv(intmax_t decimal);
+void	ft_hex_low_conv(intmax_t decimal);
 void	ft_oct_conv(intmax_t decimal);
+int		ft_hexadecimal_low(intmax_t n);
 int		ft_hexadecimal(intmax_t n);
 int		ft_octal(intmax_t n);
 int		ft_sizeofnum(intmax_t num);
+void	ft_print_memory(unsigned long addr);
 
 #endif

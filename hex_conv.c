@@ -6,7 +6,7 @@ void	ft_hex_low_conv(intmax_t decimal)
 	long	remainder;
 	int		i;
 	int		j;
-	char	hexadecimal[100];
+	char	hexadecimal[15];
 
 	j = 0;
 	quotient = decimal;
@@ -32,7 +32,7 @@ void	ft_hex_conv(intmax_t decimal)
 	long	remainder;
 	int		i;
 	int		j;
-	char	hexadecimal[100];
+	char	hexadecimal[15];
 
 	j = 0;
 	quotient = decimal;
@@ -58,7 +58,7 @@ void	ft_oct_conv(intmax_t decimal)
 	long	remainder;
 	int		i;
 	int		j;
-	char	octal[100];
+	char	octal[15];
 
 	j = 0;
 	quotient = decimal;

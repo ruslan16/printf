@@ -23,7 +23,6 @@ int	ft_printf(const char *format, ...)
 					ft_putchar(' ');
 					i++;
 				}
-
 				if (format[i] == 'd' || format[i] == 'i')
 				{
 					x = va_arg(ap, int);
@@ -49,6 +48,11 @@ int	ft_printf(const char *format, ...)
 					x = va_arg(ap, int);
 					ft_hexadecimal(x);
 				}
+				else if(format[i] == 'x')
+				{
+					x = va_arg(ap, int);
+					ft_hexadecimal_low(x);
+				}
 				else if(format[i] == 'o')
 				{
 					x = va_arg(ap, int);
@@ -58,6 +62,11 @@ int	ft_printf(const char *format, ...)
 				{
 					x = va_arg(ap, int);
 					ft_putchar(x);
+				}
+				else if(format[i] == 'p')
+				{
+					x = va_arg(ap, unsigned long);
+					ft_print_memory(x);
 				}
 			}
 		if (format[i] == '\n')
@@ -73,12 +82,8 @@ int	ft_printf(const char *format, ...)
 
 int	main ()
 {
-	ft_printf("%c\n", 70);
-	//int b = 5;
-	//int *B;
-//	char *str = "fdsgdfg";
-	//B = &b;
-	printf("\n%c \n", 70);
-	//printf("\n%d\n", B);
+	int b = 5;
+	printf("\n%p\n", &b);
+	ft_printf("%p\n", &b);
 	return (0);
 }
