@@ -54,6 +54,11 @@ int	ft_printf(const char *format, ...)
 					x = va_arg(ap, int);
 					ft_octal(x);
 				}
+				else if(format[i] == 'c')
+				{
+					x = va_arg(ap, int);
+					ft_putchar(x);
+				}
 			}
 		if (format[i] == '\n')
 			ft_putchar('\n');
@@ -68,12 +73,12 @@ int	ft_printf(const char *format, ...)
 
 int	main ()
 {
-	ft_printf("%o\n", 2147483647);
-//	int b = 5;
-//	int *B;
+	ft_printf("%c\n", 70);
+	//int b = 5;
+	//int *B;
 //	char *str = "fdsgdfg";
-//	B = &b;
-	printf("\n%o \n", 2147483647);
+	//B = &b;
+	printf("\n%c \n", 70);
 	//printf("\n%d\n", B);
 	return (0);
 }
