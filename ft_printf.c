@@ -13,15 +13,18 @@ int	ft_printf(const char *format, ...)
 	{
 		while (format[i] != '\0')
 		{
+			if (format[i] != '%' && format[i - 1] != '%')
+				ft_putchar(format[i]);
 			if (format[i] == '%')
 			{
 				if (format[++i] == '%')
 				{
 					ft_putchar('%');
+					ft_putchar(' ');
 					i++;
 				}
 
-				if (format[i] == 'd')
+				if (format[i] == 'd' || format[i] == 'i')
 				{
 					x = va_arg(ap, int);
 					ft_int(x);
@@ -41,10 +44,15 @@ int	ft_printf(const char *format, ...)
 					x = va_arg(ap, long);
 					ft_long_int(x);
 				}
-				else if(format[i] == 'x')
+				else if(format[i] == 'X')
 				{
 					x = va_arg(ap, int);
 					ft_hexadecimal(x);
+				}
+				else if(format[i] == 'o')
+				{
+					x = va_arg(ap, int);
+					ft_octal(x);
 				}
 			}
 		if (format[i] == '\n')
@@ -60,7 +68,12 @@ int	ft_printf(const char *format, ...)
 
 int	main ()
 {
-	ft_printf("%x \n " , 2147483648);
-	printf("\n%X \n", -1);
+	ft_printf("%o\n", 2147483647);
+//	int b = 5;
+//	int *B;
+//	char *str = "fdsgdfg";
+//	B = &b;
+	printf("\n%o \n", 2147483647);
+	//printf("\n%d\n", B);
 	return (0);
 }

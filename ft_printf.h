@@ -29,6 +29,9 @@ int		ft_unsigned_int(intmax_t n);
 int		ft_printf(const char *format, ...);
 
 void	ft_hex_conv(intmax_t decimal);
+void	ft_oct_conv(intmax_t decimal);
 int		ft_hexadecimal(intmax_t n);
+int		ft_octal(intmax_t n);
+int		ft_sizeofnum(intmax_t num);
 
 #endif
