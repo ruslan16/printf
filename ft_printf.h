@@ -37,4 +37,8 @@ int		ft_octal(intmax_t n);
 int		ft_sizeofnum(intmax_t num);
 void	ft_print_memory(unsigned long addr);
 
+char*	ft_parsing(char *str);
+int		ft_search_char(char *str, char c);
+char*	ft_str_cut(char *str, int len);
+
 #endif
