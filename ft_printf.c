@@ -80,10 +80,3 @@ int	ft_printf(const char *format, ...)
 	return (0);
 }
 
-int	main ()
-{
-	int b = 5;
-	printf("\n%p\n", &b);
-	ft_printf("%p\n", &b);
-	return (0);
-}

@@ -6,13 +6,14 @@
 /*   By: etristan <etristan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/03 21:54:23 by etristan          #+#    #+#             */
-/*   Updated: 2020/05/04 20:28:35 by user             ###   ########.fr       */
+/*   Updated: 2020/05/08 23:02:39 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
+# include "s_prft.h"
 # include "libft/includes/libft.h"
 # include <stdlib.h>
 # include <stdarg.h>
@@ -40,5 +41,9 @@ void	ft_print_memory(unsigned long addr);
 char*	ft_parsing(char *str);
 int		ft_search_char(char *str, char c);
 char*	ft_str_cut(char *str, int len);
+
+void	ft_freelst(t_prft *list);
+t_prft	*new_el(char letter, char *line);
+t_prft	*add_el(char letter, t_prft *head, char *line);
 
 #endif

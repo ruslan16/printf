@@ -14,7 +14,7 @@ int		ft_search_char(char *str, char c)
 	return(0);
 }
 
-char*	ft_str_cut(char *str, int len)
+char	*ft_str_cut(char *str, int len)
 {
 	char *result;
 	int i;
@@ -26,18 +26,24 @@ char*	ft_str_cut(char *str, int len)
 		result[i] = str[i];
 		i++;
 	}
-	result[i] == '\0';
+	result[i] = '\0';
 	return (result);
 }
-char*	ft_parsing(char *str)
+
+char	*ft_parsing(char *str)
 {
 	char *tmp;
 	char *mod;
 	int i;
+	t_prft	*head;
+	t_prft	*add;
+	char	letter;
 
 	i = 0;
 	mod = "diuoxXfFeEgGaAcsSpn";
 	tmp = ft_strdup(str);
+	head = NULL;
+	letter = 'A';
 	while(tmp[i] != '\0')
 	{
 		if (tmp[i] == '%')
@@ -46,9 +52,13 @@ char*	ft_parsing(char *str)
 				i++;
 			tmp = ft_str_cut(tmp, i);
 			//Дальше переносим строку в структуру
-			ft_strclr(tmp);
-			tmp = ft_strdup(str);
-			//tmp = ft_strsub(str, i + 1, ft_strlen(str));
+			if (head == NULL)
+				head = new_el(letter++, tmp);
+			else
+				add = add_el(letter++, head, tmp);
+			free(tmp);
+			tmp = ft_strsub(str, i + 1, ft_strlen(str));
+			i++;
 		}
 		i++;
 	}
