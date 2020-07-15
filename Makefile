@@ -10,16 +10,22 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = ft_printf
+NAME = libftprintf.a
+
+ADDAR = ar rc
+
+RLIB = ranlib
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = #-Wall -Wextra -Werror
 
-SRC_NAME = $(wildcard *.c)
+SRC_W = $(wildcard srcs/*.c)
 
-#SRC_PATH = srcs
-SRC_PATH = ./
+SRC_NAME = $(notdir $(SRC_W))
+
+SRC_PATH = srcs
+#SRC_PATH = ./
 
 OBJ_PATH = objs
 
@@ -29,8 +35,9 @@ SRCS = $(addprefix $(SRC_PATH)/,$(SRC_NAME))
 
 OBJS = $(addprefix $(OBJ_PATH)/,$(OBJ_NAME))
 
-CFLAGS += -I ./
+CFLAGS += -I ./includes
 
+#CFLAGS += -I libft/
 CFLAGS += -I libft/includes
 
 #CFLAGS += -I minilibx_macos/
@@ -46,7 +53,7 @@ LDFLAGS = -L $(LIBFT) #-L $(LIBMX)
 ###############################################################################
 UNAME_S := $(shell uname -s)
 ifeq ($(UNAME_S),Linux)
-	CFLAGS += -Wno-unused-but-set-variable
+#	CFLAGS += -Wno-unused-but-set-variable
 	NUMPROC := $(shell grep -c ^processor /proc/cpuinfo)
 else ifeq ($(UNAME_S),Darwin)
 #	LDLIBS += -framework OpenGL -framework AppKit
@@ -65,7 +72,7 @@ libft.a	:
 
 #libmlx.a :
 #	@echo "$(RED)Making libmlx...$(EOC)\n"
-#	@$(MAKE) --no-print-directory -C $(LIBMX) all	
+#	@$(MAKE) --no-print-directory -C $(LIBMX) all
 
 $(OBJ_PATH) : libft.a #libmlx.a
 	@mkdir -p $(OBJ_PATH) 2> /dev/null
@@ -73,7 +80,10 @@ $(OBJ_PATH) : libft.a #libmlx.a
 
 $(NAME)	: $(OBJS)
 	@printf "$(GRN)%-50s$(EOC)\n" "Compilation done"
-	$(CC) -o $@ $^ $(LDFLAGS) $(LDLIBS)
+#	$(CC) -o $@ $^ $(LDFLAGS) $(LDLIBS)
+	@cp libft/libft.a $(NAME)
+	$(ADDAR) $@ $^
+	$(RLIB) $@
 	@printf "$(GRN)%-50s$(EOC)\n" "$(NAME) done"
 
 $(OBJ_PATH)/%.o: $(SRC_PATH)/%.c | $(OBJ_PATH)

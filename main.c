@@ -10,15 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "includes/ft_printf.h"
 
 int	main ()
 {
-	int b = 5;
-	ft_putstr("prft\n");
-	printf("%p\n", &b);
-	ft_putstr("ft_prft\n");
-	ft_printf("%p\n", &b);
+	int i = 0;
+	int j = 0;
+	i = ft_printf("%s\n", NULL+1);
+	printf("%d\n%d\n", i, j);
 	return (0);
 }
 

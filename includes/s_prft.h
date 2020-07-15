@@ -15,9 +15,21 @@
 
 typedef struct		s_prft
 {
-	char			name;
-	char			*str;
-	struct s_prft	*next;
-}					t_prft;
+	char			format;
+	int				n_print;
+
+	int				pos;
+	int				len;
+	int				minus;
+	int				plus;
+	int				zero;
+	int				hash;
+	int				space;
+
+	int				width;
+	int				precis_status;
+	int				precision;
+	int				modif;
+}					t_printf;
 
 #endif
