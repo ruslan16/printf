@@ -93,6 +93,8 @@ void	print_int(t_printf *f, va_list ap, int znak, intmax_t num)
 		num = (long int)va_arg(ap, long int);
 	else if (f->modif == LL)
 		num = (long long int)va_arg(ap, long long int);
+	else if (f->modif == J)
+		num = (intmax_t)va_arg(ap, long long int);
 	if (f->plus == 1 && num >= 0)
 		znak = POSITIV;
 	else if (num < 0)

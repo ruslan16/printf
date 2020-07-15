@@ -16,8 +16,8 @@ void	conversions(char c, t_printf *f, va_list ap)
 		print_unsigned(f, ap, 0);
 	else if (c == 'x' || c == 'X')
 		print_hexa(f, ap, c);
-	//else if (c == 'f')
-		//print_loat(f, ap);
+	else if (c == 'f')
+		print_float(f, ap);
 	else if (c == '%')
 		print_percent(f);
 	//else if (c == 'y')

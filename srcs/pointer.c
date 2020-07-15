@@ -1,5 +1,22 @@
 #include "../includes/ft_printf.h"
 
+void	pointer_null(t_printf *f)
+{
+	f->width -= 5;
+	if (f->minus == 0)
+	{
+		while (f->width-- >0)
+			f->n_print += write(1, " ", 1);
+		f->n_print += write(1, "(nil)", 5);
+	}
+	else if (f->minus == 1)
+	{
+		f->n_print += write(1, "(nil)", 5);
+		while (f->width-- >0)
+			f->n_print += write(1, " ", 1);
+	}
+}
+
 void	left_pointer(t_printf *f, char *pointer, int len)
 {
 	f->n_print += write(1, "0x", 2);
@@ -40,7 +57,7 @@ void	print_pointer(t_printf *f, va_list ap)
 	p = (unsigned long long)va_arg(ap, void *);
 	if (p == 0)
 	{
-		f->n_print += write(1, "(nil)", 5);
+		pointer_null(f);
 		return ;
 	}
 	pointer = ft_itoa_base(p, 16, LOWER);

@@ -1,5 +1,10 @@
 #include "../includes/ft_printf.h"
 
+void	error(void)
+{
+	write(1, "", 0);
+}
+
 int	ft_printf(const char *format, ...)
 {
 	va_list		ap;
@@ -18,7 +23,7 @@ int	ft_printf(const char *format, ...)
 		return(0);
 	}
 	if (len_form == 1 && format[0] == '%')
-		return(0);
+		return(-1);
 	else
 		len_write = ft_parsing(format, f, ap);
 	va_end(ap);

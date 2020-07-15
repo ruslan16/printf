@@ -77,7 +77,7 @@ void	check_modif(const char *format, t_printf *f)
 			else if (format[f->pos - 1] != 'h')
 				f->modif = H;
 		}
-		if (format[f->pos] == 'l')
+		if (format[f->pos] == 'l' || format[f->pos] == 'z')
 		{
 			if (format[f->pos + 1] == 'l')
 				f->modif = LL;
@@ -86,6 +86,8 @@ void	check_modif(const char *format, t_printf *f)
 		}
 		if (format[f->pos] == 'L')
 			f->modif = BIGL;
+		if (format[f->pos] == 'j')
+			f->modif = J;
 		while (ft_strchr(ALLMODIF, format[f->pos]))		//Проверить все схожие циклы на доп условие
 			f->pos++;										//чтобы символ строки не был равен концу строки
 	}

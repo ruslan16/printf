@@ -1,8 +1,20 @@
 #include "../includes/ft_printf.h"
 
-void	error(void)
+long double		power(intmax_t n, int i)
 {
-	write(1, "", 0);
+	long		k;
+	long double	result;
+
+	result = n;
+	k = 0;
+	if (i == 0)
+		return (1);
+	while (k < i - 1)
+	{
+		result = result * n;
+		k++;
+	}
+	return (result);
 }
 
 void	writespace(int n)

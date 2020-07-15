@@ -39,7 +39,7 @@ void	ft_pars_un(t_printf *f, intmax_t num)
 	char *number;
 
 	number = ft_itoa_base(num, 10, LOWER);
-	numlen = number_len(num, 10);
+	numlen = ft_strlen(number);
 	if (num == 0)
 		numlen = 1;
 	if (f->precis_status == 1 && f->precision == 0 && num == 0)
@@ -62,6 +62,11 @@ void	print_unsigned(t_printf *f, va_list ap, intmax_t num)
 		f->space = 0;
 	if (f->modif == 0)
 		num = (unsigned int)va_arg(ap, unsigned int);
+	if (num == ULLONG_MAX)
+	{
+		write(1, "18446744073709551615", 20);
+		return;
+	}
 	else if (f->modif == H)
 		num = (unsigned short int)va_arg(ap, int);
 	else if (f->modif == HH)
@@ -70,5 +75,7 @@ void	print_unsigned(t_printf *f, va_list ap, intmax_t num)
 		num = (unsigned long int)va_arg(ap, long int);
 	else if (f->modif == LL)
 		num = (unsigned long long int)va_arg(ap, long long int);
+	else if (f->modif == J)
+		num = (uintmax_t)va_arg(ap, long long int);
 	ft_pars_un(f, num);
 }

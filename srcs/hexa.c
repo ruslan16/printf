@@ -1,5 +1,19 @@
 #include "../includes/ft_printf.h"
 
+void	ullonghex(t_printf *f, char x)
+{
+	if (x == 'x')
+	{
+		f->n_print = f->n_print + write(1, "ffffffffffffffff\0", 16);
+		return;
+	}
+	else if (x == 'X')
+	{
+		f->n_print = f->n_print + write(1, "FFFFFFFFFFFFFFFF\0", 16);
+		return;
+	}
+}
+
 void	right_hexa(t_printf *f, char *number, int numlen, char x)
 {
 	char c;
@@ -17,7 +31,7 @@ void	right_hexa(t_printf *f, char *number, int numlen, char x)
 		f->n_print += write(1, "0X", 2);
 	while (f->precision-- > 0)
 		f->n_print += write(1, "0", 1);
-	write(1, number, numlen);
+	f->n_print += write(1, number, numlen);
 	free(number);
 }
 
@@ -86,5 +100,10 @@ void	print_hexa(t_printf *f, va_list ap, char x)
 		str = ft_itoa_base(num, 16, LOWER);
 	else if (x == 'X')
 		str = ft_itoa_base(num, 16, UPPER);
+	if (num == ULLONG_MAX)
+	{
+		ullonghex(f, x);
+		return;
+	}
 	parse_hexa(f, num, str, x);
 }

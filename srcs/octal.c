@@ -71,7 +71,7 @@ void	print_octal(t_printf *f, va_list ap)
 	if (f->modif == 0)
 		num = va_arg(ap, unsigned int);
 	else if (f->modif == H)
-		num = (unsigned int)va_arg(ap, unsigned int);
+		num = (unsigned short)va_arg(ap, unsigned int);
 	else if (f->modif == HH)
 		num = (unsigned char)va_arg(ap, unsigned int);
 	else if (f->modif == L)

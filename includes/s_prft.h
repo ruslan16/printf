@@ -32,4 +32,20 @@ typedef struct		s_prft
 	int				modif;
 }					t_printf;
 
+typedef	struct			s_float
+{
+	char				*strnum;
+	char				*strtail;
+	int					precision;
+	long double			num;
+	long double			tail;
+	int					zeroes;
+	int					precisionaddon;
+	int					width;
+	char				c;
+	char				znak;
+	int					znak_status;
+	int					dot;
+}						t_float;
+
 #endif

@@ -21,7 +21,7 @@ int		ft_parsing(const char *format, t_printf *f, va_list ap)
 		else if (format[f->pos] == '%')
 		{
 			if (!ft_strchr(ALLSYM,format[f->pos + 1]))
-				break;
+				return(-1);
 			while (ft_strchr(ALLSYM, format[f->pos + 1]))
 			{
 				f->pos++;
@@ -31,7 +31,11 @@ int		ft_parsing(const char *format, t_printf *f, va_list ap)
 					break;
 				}
 				else
+				{
 					f->pos = ft_parstwo(format, f, ap);
+					if (!ft_strchr(ALLPREOBR, format[f->pos + 1]))
+						return (-1);
+				}
 			}
 			continue;
 		}
