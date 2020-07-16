@@ -96,6 +96,8 @@ void	print_hexa(t_printf *f, va_list ap, char x)
 		num = (unsigned long)va_arg(ap, uintmax_t);
 	else if (f->modif == LL)
 		num = (unsigned long long)va_arg(ap, uintmax_t);
+	else if (f->modif == J)
+		num = (uintmax_t)va_arg(ap, uintmax_t);
 	if (x == 'x')
 		str = ft_itoa_base(num, 16, LOWER);
 	else if (x == 'X')
