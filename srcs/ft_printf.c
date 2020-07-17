@@ -23,7 +23,7 @@ int	ft_printf(const char *format, ...)
 		return(0);
 	}
 	if (len_form == 1 && format[0] == '%')
-		return(-1);
+		return(0);
 	else
 		len_write = ft_parsing(format, f, ap);
 	va_end(ap);

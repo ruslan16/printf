@@ -2,16 +2,26 @@
 
 void	pointer_null(t_printf *f)
 {
-	f->width -= 5;
+	f->width -= 3;
 	if (f->minus == 0)
 	{
 		while (f->width-- >0)
 			f->n_print += write(1, " ", 1);
-		f->n_print += write(1, "(nil)", 5);
+		f->n_print += write(1, "0x", 2);
+		if (f->precis_status)
+			while (f->precision-- > 0)
+				f->n_print += write(1, "0", 1);
+		else
+			f->n_print += write(1, "0", 1);
 	}
 	else if (f->minus == 1)
 	{
-		f->n_print += write(1, "(nil)", 5);
+		f->n_print += write(1, "0x", 2);
+		if (f->precis_status)
+			while (f->precision-- > 0)
+				f->n_print += write(1, "0", 1);
+		else
+			f->n_print += write(1, "0", 1);
 		while (f->width-- >0)
 			f->n_print += write(1, " ", 1);
 	}
