@@ -1,4 +1,16 @@
-#include "../includes/ft_printf.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   int.c                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sirvin <sirvin@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/07/17 18:36:57 by sirvin            #+#    #+#             */
+/*   Updated: 2020/07/17 18:38:16 by sirvin           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_printf.h"
 
 void	ft_print_znak(t_printf *f, int znak)
 {
@@ -6,8 +18,8 @@ void	ft_print_znak(t_printf *f, int znak)
 		f->n_print += write(1, "+", 1);
 	else if (znak == NEGATIV)
 		f->n_print += write(1, "-", 1);
-
 }
+
 void	ft_right_int(t_printf *f, char *number, int len, int znak)
 {
 	char c;
@@ -55,8 +67,8 @@ void	ft_left_int(t_printf *f, char *number, int len, int znak)
 
 void	ft_pars_int(t_printf *f, intmax_t num, int znak)
 {
-	int numlen;
-	char *number;
+	int		numlen;
+	char	*number;
 
 	number = ft_itoa_base(num, 10, LOWER);
 	if (znak != 0)

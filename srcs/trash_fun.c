@@ -1,4 +1,16 @@
-#include "../includes/ft_printf.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   trash_fun.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sirvin <sirvin@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/07/17 18:43:09 by sirvin            #+#    #+#             */
+/*   Updated: 2020/07/17 18:44:12 by sirvin           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_printf.h"
 
 long double		power(intmax_t n, int i)
 {
@@ -17,7 +29,7 @@ long double		power(intmax_t n, int i)
 	return (result);
 }
 
-void	writespace(int n)
+void			writespace(int n)
 {
 	while (n > 0)
 	{
@@ -26,7 +38,7 @@ void	writespace(int n)
 	}
 }
 
-void	writezeros(int n)
+void			writezeros(int n)
 {
 	while (n > 0)
 	{
@@ -35,7 +47,7 @@ void	writezeros(int n)
 	}
 }
 
-int		number_len(intmax_t num, int n)
+int				number_len(intmax_t num, int n)
 {
 	int nbrlen;
 
@@ -53,7 +65,7 @@ int		number_len(intmax_t num, int n)
 	return (nbrlen);
 }
 
-char	*ft_itoa_base(uintmax_t value, uintmax_t base, int registr)
+char			*ft_itoa_base(uintmax_t value, uintmax_t base, int registr)
 {
 	char				*s;
 	unsigned long long	n;

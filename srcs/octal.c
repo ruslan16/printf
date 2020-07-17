@@ -1,4 +1,16 @@
-#include "../includes/ft_printf.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   octal.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: etristan <etristan@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/07/17 18:22:18 by etristan          #+#    #+#             */
+/*   Updated: 2020/07/17 18:23:01 by etristan         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_printf.h"
 
 void	right_octal(t_printf *f, char *number, int len)
 {
@@ -39,8 +51,8 @@ void	left_octal(t_printf *f, char *number, int len)
 
 void	parse_octal(t_printf *f, uintmax_t num)
 {
-	int numlen;
-	char *number;
+	int		numlen;
+	char	*number;
 
 	number = ft_itoa_base(num, 8, LOWER);
 	numlen = ft_strlen(number);

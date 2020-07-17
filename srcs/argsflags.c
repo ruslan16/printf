@@ -1,4 +1,16 @@
-#include "../includes/ft_printf.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   argsflags.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sirvin <sirvin@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/07/17 18:25:30 by sirvin            #+#    #+#             */
+/*   Updated: 2020/07/17 18:28:42 by sirvin           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_printf.h"
 
 void	check_flags(const char *format, t_printf *f)
 {
@@ -88,8 +100,8 @@ void	check_modif(const char *format, t_printf *f)
 			f->modif = BIGL;
 		if (format[f->pos] == 'j')
 			f->modif = J;
-		while (ft_strchr(ALLMODIF, format[f->pos]))		//Проверить все схожие циклы на доп условие
-			f->pos++;										//чтобы символ строки не был равен концу строки
+		while (ft_strchr(ALLMODIF, format[f->pos]))
+			f->pos++;
 	}
 }
 

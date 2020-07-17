@@ -1,16 +1,28 @@
-#include "../includes/ft_printf.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   hexa.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: etristan <etristan@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/07/17 18:18:11 by etristan          #+#    #+#             */
+/*   Updated: 2020/07/17 18:21:39 by etristan         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_printf.h"
 
 void	ullonghex(t_printf *f, char x)
 {
 	if (x == 'x')
 	{
 		f->n_print = f->n_print + write(1, "ffffffffffffffff\0", 16);
-		return;
+		return ;
 	}
 	else if (x == 'X')
 	{
 		f->n_print = f->n_print + write(1, "FFFFFFFFFFFFFFFF\0", 16);
-		return;
+		return ;
 	}
 }
 
@@ -18,7 +30,7 @@ void	right_hexa(t_printf *f, char *number, int numlen, char x)
 {
 	char c;
 
-	c =  (f->zero && !f->precis_status) ? '0' : ' ';
+	c = (f->zero && !f->precis_status) ? '0' : ' ';
 	if (c == '0' && x == 'x' && f->hash == 2)
 		f->n_print += write(1, "0x", 2);
 	else if (c == '0' && x == 'X' && f->hash == 2)
@@ -53,12 +65,11 @@ void	left_hexa(t_printf *f, char *number, int numlen, char x)
 		f->width--;
 	}
 	free(number);
-
 }
 
 void	parse_hexa(t_printf *f, uintmax_t num, char *str, char x)
 {
-	int numlen;
+	int	numlen;
 
 	numlen = ft_strlen(str);
 	if (f->hash)
@@ -83,8 +94,8 @@ void	parse_hexa(t_printf *f, uintmax_t num, char *str, char x)
 
 void	print_hexa(t_printf *f, va_list ap, char x)
 {
-	char *str;
-	uintmax_t num;
+	char		*str;
+	uintmax_t	num;
 
 	if (f->modif == 0)
 		num = va_arg(ap, unsigned int);
@@ -105,7 +116,7 @@ void	print_hexa(t_printf *f, va_list ap, char x)
 	if (num == ULLONG_MAX)
 	{
 		ullonghex(f, x);
-		return;
+		return ;
 	}
 	parse_hexa(f, num, str, x);
 }

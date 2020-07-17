@@ -1,4 +1,16 @@
-#include "../includes/ft_printf.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   string.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sirvin <sirvin@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/07/17 18:42:16 by sirvin            #+#    #+#             */
+/*   Updated: 2020/07/17 18:42:57 by sirvin           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_printf.h"
 
 void	left_string(t_printf *f, char *str, int len)
 {
@@ -13,7 +25,7 @@ void	left_string(t_printf *f, char *str, int len)
 	}
 }
 
-void    right_string(t_printf *f, char *str, int len)
+void	right_string(t_printf *f, char *str, int len)
 {
 	char c;
 
@@ -34,8 +46,8 @@ void    right_string(t_printf *f, char *str, int len)
 
 void	print_string(t_printf *f, va_list ap)
 {
-	char *str;
-	int i;
+	char	*str;
+	int		i;
 
 	str = (char *)va_arg(ap, char *);
 	if (str == NULL)

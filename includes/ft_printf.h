@@ -6,7 +6,7 @@
 /*   By: etristan <etristan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/03 21:54:23 by etristan          #+#    #+#             */
-/*   Updated: 2020/05/08 23:02:39 by user             ###   ########.fr       */
+/*   Updated: 2020/07/17 18:17:12 by etristan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,8 @@ int				ft_parsing(const char *format, t_printf *f, va_list ap);
 int				ft_parstwo(const char *format, t_printf *f, va_list ap);
 void			argsflags(const char *format, t_printf *f, va_list ap);
 void			check_modif(const char *format, t_printf *f);
-void			check_precision(const char *format, t_printf *f, va_list ap, int i);
+void			check_precision(const char *format, t_printf *f,
+		va_list ap, int i);
 void			check_width(const char *format, t_printf *f, va_list ap);
 void			check_flags(const char *format, t_printf *f);
 void			conversions(char c, t_printf *f, va_list ap);

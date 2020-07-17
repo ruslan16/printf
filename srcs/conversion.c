@@ -1,4 +1,16 @@
-#include "../includes/ft_printf.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   conversion.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sirvin <sirvin@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/07/17 18:31:23 by sirvin            #+#    #+#             */
+/*   Updated: 2020/07/17 18:31:52 by sirvin           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_printf.h"
 
 void	conversions(char c, t_printf *f, va_list ap)
 {
@@ -20,9 +32,6 @@ void	conversions(char c, t_printf *f, va_list ap)
 		print_float(f, ap);
 	else if (c == '%')
 		print_percent(f);
-	//else if (c == 'y')
-		//ifcat();
 	else if (c == 'b')
 		print_binary(f, ap);
 }
-

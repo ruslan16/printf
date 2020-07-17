@@ -6,7 +6,7 @@
 /*   By: etristan <etristan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/28 19:44:13 by etristan          #+#    #+#             */
-/*   Updated: 2020/05/08 23:03:02 by user             ###   ########.fr       */
+/*   Updated: 2020/07/17 18:16:37 by etristan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,20 +32,20 @@ typedef struct		s_prft
 	int				modif;
 }					t_printf;
 
-typedef	struct			s_float
+typedef	struct		s_float
 {
-	char				*strnum;
-	char				*strtail;
-	int					precision;
-	long double			num;
-	long double			tail;
-	int					zeroes;
-	int					precisionaddon;
-	int					width;
-	char				c;
-	char				znak;
-	int					znak_status;
-	int					dot;
-}						t_float;
+	char			*strnum;
+	char			*strtail;
+	int				precision;
+	long double		num;
+	long double		tail;
+	int				zeroes;
+	int				precisionaddon;
+	int				width;
+	char			c;
+	char			znak;
+	int				znak_status;
+	int				dot;
+}					t_float;
 
 #endif

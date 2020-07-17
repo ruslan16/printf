@@ -1,4 +1,16 @@
-#include "../includes/ft_printf.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   unsigned.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sirvin <sirvin@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/07/17 18:44:25 by sirvin            #+#    #+#             */
+/*   Updated: 2020/07/17 18:45:07 by sirvin           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_printf.h"
 
 void	ft_right_un(t_printf *f, char *number, int len)
 {
@@ -35,8 +47,8 @@ void	ft_left_un(t_printf *f, char *number, int len)
 
 void	ft_pars_un(t_printf *f, intmax_t num)
 {
-	int numlen;
-	char *number;
+	int		numlen;
+	char	*number;
 
 	number = ft_itoa_base(num, 10, LOWER);
 	numlen = ft_strlen(number);
@@ -65,7 +77,7 @@ void	print_unsigned(t_printf *f, va_list ap, intmax_t num)
 	if (num == ULLONG_MAX)
 	{
 		write(1, "18446744073709551615", 20);
-		return;
+		return ;
 	}
 	else if (f->modif == H)
 		num = (unsigned short int)va_arg(ap, int);

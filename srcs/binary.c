@@ -1,4 +1,16 @@
-#include "../includes/ft_printf.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   binary.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sirvin <sirvin@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/07/17 18:28:55 by sirvin            #+#    #+#             */
+/*   Updated: 2020/07/17 18:29:28 by sirvin           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_printf.h"
 
 void	right_binary(t_printf *f, char *number, int len)
 {
@@ -60,8 +72,8 @@ void	parse_binary(t_printf *f, uintmax_t num, char *str)
 
 void	print_binary(t_printf *f, va_list ap)
 {
-	char *str;
-	uintmax_t num;
+	char		*str;
+	uintmax_t	num;
 
 	if (f->modif == 0)
 		num = va_arg(ap, unsigned int);

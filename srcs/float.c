@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   float.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sirvin <sirvin@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/07/17 18:32:08 by sirvin            #+#    #+#             */
+/*   Updated: 2020/07/17 18:34:40 by sirvin           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
 t_float		parse_float_three(t_printf *f, t_float fl)
@@ -31,7 +43,7 @@ t_float		parse_float_two(t_printf *f, t_float fl, long double n)
 		fl.precisionaddon = fl.precision - 1;
 	n = n * power(10, fl.precision);
 	fl.tail = (n >= 0) ? (long)(n + 0.5) : (long)(n - 0.5);
-	if (fl.tail == power(10, fl.precision) &&  fl.tail != 0)
+	if (fl.tail == power(10, fl.precision) && fl.tail != 0)
 	{
 		fl.strnum = ft_itoa_base(fl.num + 1, 10, LOWER);
 		if (n == 0.5 && (int)fl.num % 2 == 0)
@@ -41,11 +53,12 @@ t_float		parse_float_two(t_printf *f, t_float fl, long double n)
 			fl.precisionaddon = fl.precision - 1;
 	}
 	fl.strtail = ft_itoa_base(fl.tail, 10, LOWER);
-	fl.zeroes = (fl.precision != 0) ? fl.precision - number_len(fl.tail, 10) : 0;
+	fl.zeroes = (fl.precision != 0) ?
+		fl.precision - number_len(fl.tail, 10) : 0;
 	return (fl);
 }
 
-void	parse_float_one(t_printf *f, long double n)
+void		parse_float_one(t_printf *f, long double n)
 {
 	t_float fl;
 
@@ -71,7 +84,7 @@ void	parse_float_one(t_printf *f, long double n)
 	free(fl.strtail);
 }
 
-void	print_float(t_printf *f, va_list ap)
+void		print_float(t_printf *f, va_list ap)
 {
 	long double n;
 
