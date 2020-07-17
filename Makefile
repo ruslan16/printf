@@ -18,7 +18,7 @@ RLIB = ranlib
 
 CC = gcc
 
-CFLAGS = #-Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
 
 SRC_W = $(wildcard srcs/*.c)
 
@@ -37,18 +37,13 @@ OBJS = $(addprefix $(OBJ_PATH)/,$(OBJ_NAME))
 
 CFLAGS += -I ./includes
 
-#CFLAGS += -I libft/
 CFLAGS += -I libft/includes
-
-#CFLAGS += -I minilibx_macos/
 
 LIBFT = libft
 
-#LIBMX = minilibx_macos
+LDLIBS = -lft
 
-LDLIBS = -lft #-lmlx
-
-LDFLAGS = -L $(LIBFT) #-L $(LIBMX)
+LDFLAGS = -L $(LIBFT)
 
 ###############################################################################
 UNAME_S := $(shell uname -s)
@@ -69,10 +64,6 @@ fast	:
 libft.a	:
 	@printf "$(RED)Making libft...$(EOC)\n"
 	@$(MAKE) --no-print-directory -C $(LIBFT) all
-
-#libmlx.a :
-#	@echo "$(RED)Making libmlx...$(EOC)\n"
-#	@$(MAKE) --no-print-directory -C $(LIBMX) all
 
 $(OBJ_PATH) : libft.a #libmlx.a
 	@mkdir -p $(OBJ_PATH) 2> /dev/null
@@ -97,7 +88,6 @@ $(OBJ_PATH)/%.o: $(SRC_PATH)/%.c | $(OBJ_PATH)
 clean	:
 	/bin/rm -rf $(OBJ_PATH)
 	@$(MAKE) --no-print-directory -C $(LIBFT) fclean
-#	@$(MAKE) --no-print-directory -C $(LIBMX) clean
 	@printf "$(RED)./$(OBJ_PATH), libft libmlx cleaned$(EOC)\n"
 
 fclean	:	clean
