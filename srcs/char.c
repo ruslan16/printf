@@ -6,7 +6,7 @@
 /*   By: sirvin <sirvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/17 18:29:49 by sirvin            #+#    #+#             */
-/*   Updated: 2020/07/17 18:50:20 by etristan         ###   ########.fr       */
+/*   Updated: 2020/07/17 22:20:27 by etristan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,9 +60,9 @@ void	charnull(t_printf *f)
 		f->n_print += write(1, "", 1);
 }
 
-void    print_char(t_printf *f, va_list ap)
+void	print_char(t_printf *f, va_list ap)
 {
-	char    c;
+	char	c;
 
 	c = (unsigned char)va_arg(ap, int);
 	if (c == 0)
@@ -88,4 +88,3 @@ void    print_char(t_printf *f, va_list ap)
 	else
 		f->n_print += write(1, &c, 1);
 }
-
