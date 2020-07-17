@@ -25,7 +25,7 @@ void	conversion2(char c, t_printf *f, va_list ap)
 	else if (c == 'K')
 		color(f, ap);
 	else if (c == 'y')
-		palitra(f);
+		palitra();
 }
 
 void	conversions(char c, t_printf *f, va_list ap)
