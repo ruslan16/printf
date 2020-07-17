@@ -97,6 +97,7 @@ void	print_hexa(t_printf *f, va_list ap, char x)
 	char		*str;
 	uintmax_t	num;
 
+	num = 0;
 	if (f->modif == 0)
 		num = va_arg(ap, unsigned int);
 	else if (f->modif == H)
@@ -109,10 +110,8 @@ void	print_hexa(t_printf *f, va_list ap, char x)
 		num = (unsigned long long)va_arg(ap, uintmax_t);
 	else if (f->modif == J)
 		num = (uintmax_t)va_arg(ap, uintmax_t);
-	if (x == 'x')
-		str = ft_itoa_base(num, 16, LOWER);
-	else if (x == 'X')
-		str = ft_itoa_base(num, 16, UPPER);
+	str = (x == 'x') ? ft_itoa_base(num, 16, LOWER) :
+			ft_itoa_base(num, 16, UPPER);
 	if (num == ULLONG_MAX)
 	{
 		ullonghex(f, x);

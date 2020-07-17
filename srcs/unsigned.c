@@ -45,7 +45,7 @@ void	ft_left_un(t_printf *f, char *number, int len)
 	}
 }
 
-void	ft_pars_un(t_printf *f, intmax_t num)
+void	ft_pars_un(t_printf *f, uintmax_t num)
 {
 	int		numlen;
 	char	*number;
@@ -68,7 +68,7 @@ void	ft_pars_un(t_printf *f, intmax_t num)
 	free(number);
 }
 
-void	print_unsigned(t_printf *f, va_list ap, intmax_t num)
+void	print_unsigned(t_printf *f, va_list ap, uintmax_t num)
 {
 	if (f->space)
 		f->space = 0;

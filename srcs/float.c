@@ -88,6 +88,7 @@ void		print_float(t_printf *f, va_list ap)
 {
 	long double n;
 
+	n = 0.0;
 	if (f->modif == 0)
 		n = (long double)va_arg(ap, double);
 	else if (f->modif == L)

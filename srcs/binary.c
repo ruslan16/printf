@@ -75,6 +75,7 @@ void	print_binary(t_printf *f, va_list ap)
 	char		*str;
 	uintmax_t	num;
 
+	num = 0;
 	if (f->modif == 0)
 		num = va_arg(ap, unsigned int);
 	else if (f->modif == H)

@@ -68,8 +68,8 @@ void			ft_left_int(t_printf *f, char *number, int len, int znak);
 void			ft_right_int(t_printf *f, char *number, int len, int znak);
 void			ft_print_znak(t_printf *f, int znak);
 
-void			print_unsigned(t_printf *f, va_list ap, intmax_t num);
-void			ft_pars_un(t_printf *f, intmax_t num);
+void			print_unsigned(t_printf *f, va_list ap, uintmax_t num);
+void			ft_pars_un(t_printf *f, uintmax_t num);
 void			ft_left_un(t_printf *f, char *number, int len);
 void			ft_right_un(t_printf *f, char *number, int len);
 
