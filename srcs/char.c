@@ -13,7 +13,7 @@ void    print_percent(t_printf *f)
 	{
 		write(1, "%", 1);
 		while (f->width-- > 0)
-			f->n_print += write(1, &c, 1);
+			f->n_print += write(1, " ", 1);
 	}
 	else if (f->minus == 0)
 	{
