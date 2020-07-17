@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   color.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: etristan <etristan@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/07/17 23:40:11 by etristan          #+#    #+#             */
+/*   Updated: 2020/07/17 23:41:32 by etristan         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
 void	write_color(int i)
@@ -12,7 +24,7 @@ void	write_color(int i)
 	ft_putstr(" \x1b[0m");
 }
 
-void	palitra()
+void	palitra(void)
 {
 	int	i;
 	int	j;
@@ -36,9 +48,9 @@ void	palitra()
 
 void	color(t_printf *f, va_list ap)
 {
-	char *str;
-	int i;
-	char j;
+	char	*str;
+	int		i;
+	char	j;
 
 	i = 0;
 	j = '1';

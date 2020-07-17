@@ -6,7 +6,7 @@
 /*   By: etristan <etristan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/03 21:54:23 by etristan          #+#    #+#             */
-/*   Updated: 2020/07/17 18:17:12 by etristan         ###   ########.fr       */
+/*   Updated: 2020/07/17 23:41:55 by etristan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,6 @@ void			error(void);
 long double		power(intmax_t n, int k);
 void			numer(t_printf *f, va_list ap);
 void			color(t_printf *f, va_list ap);
-void			palitra();
+void			palitra(void);
 
 #endif
