@@ -20,12 +20,14 @@ CC = gcc
 
 CFLAGS = -Wall -Wextra -Werror
 
-SRC_W = $(wildcard srcs/*.c)
+SRC_W = srcs/argsflags.c srcs/binary.c srcs/char.c srcs/color.c \
+	srcs/conversion.c srcs/float2.c srcs/float.c srcs/ft_printf.c \
+	srcs/hexa.c srcs/int.c srcs/numer.c srcs/octal.c srcs/parsing.c \
+	srcs/pointer.c srcs/string.c srcs/trash_fun.c srcs/unsigned.c srcs/zero_struct.c
 
 SRC_NAME = $(notdir $(SRC_W))
 
 SRC_PATH = srcs
-#SRC_PATH = ./
 
 OBJ_PATH = objs
 
@@ -35,7 +37,7 @@ SRCS = $(addprefix $(SRC_PATH)/,$(SRC_NAME))
 
 OBJS = $(addprefix $(OBJ_PATH)/,$(OBJ_NAME))
 
-CFLAGS += -I ./includes
+CFLAGS += -I includes
 
 CFLAGS += -I libft/includes
 
@@ -51,7 +53,6 @@ ifeq ($(UNAME_S),Linux)
 #	CFLAGS += -Wno-unused-but-set-variable
 	NUMPROC := $(shell grep -c ^processor /proc/cpuinfo)
 else ifeq ($(UNAME_S),Darwin)
-#	LDLIBS += -framework OpenGL -framework AppKit
 	NUMPROC := $(shell sysctl hw.ncpu | awk '{print $$2}')
 endif
 ################################################################################
@@ -62,23 +63,23 @@ fast	:
 	@$(MAKE) -s -j$(NUMPROC)
 
 libft.a	:
-	@printf "$(RED)Making libft...$(EOC)\n"
+	@echo "$(RED)Making libft...$(EOC)\n"
 	@$(MAKE) --no-print-directory -C $(LIBFT) all
 
-$(OBJ_PATH) : libft.a #libmlx.a
+$(OBJ_PATH) : libft.a
 	@mkdir -p $(OBJ_PATH) 2> /dev/null
-	@printf "$(GRN)Compiling with \"$(CFLAGS)\" :$(EOC)\n"
+	@echo "$(GRN)Compiling with \"$(CFLAGS)\" :$(EOC)\n"
 
 $(NAME)	: $(OBJS)
-	@printf "$(GRN)%-50s$(EOC)\n" "Compilation done"
+	@echo "$(GRN)%-50s$(EOC)\n" "Compilation done"
 #	$(CC) -o $@ $^ $(LDFLAGS) $(LDLIBS)
 	@cp libft/libft.a $(NAME)
 	$(ADDAR) $@ $^
 	$(RLIB) $@
-	@printf "$(GRN)%-50s$(EOC)\n" "$(NAME) done"
+	@echo "$(GRN)%-50s$(EOC)\n" "$(NAME) done"
 
 $(OBJ_PATH)/%.o: $(SRC_PATH)/%.c | $(OBJ_PATH)
-	@printf "%-50s\r" "$(CC) $@"
+	@echo "%-50s\r" "$(CC) $@"
 	$(CC) $(CFLAGS) -o $@ -c $<
 
 #so	: all
@@ -88,21 +89,21 @@ $(OBJ_PATH)/%.o: $(SRC_PATH)/%.c | $(OBJ_PATH)
 clean	:
 	/bin/rm -rf $(OBJ_PATH)
 	@$(MAKE) --no-print-directory -C $(LIBFT) fclean
-	@printf "$(RED)./$(OBJ_PATH), libft libmlx cleaned$(EOC)\n"
+	@echo "$(RED)./$(OBJ_PATH), libft cleaned$(EOC)\n"
 
 fclean	:	clean
 	/bin/rm -f $(NAME)
-	@printf "$(RED)$(NAME), libft.a libmlx.a removed$(EOC)\n"
+	@echo "$(RED)$(NAME), libft.a removed$(EOC)\n"
 
 ref	:
 	/bin/rm -rf $(OBJ_PATH)
-	@printf "$(RED)./$(OBJ_PATH), cleaned$(EOC)\n"
+	@echo "$(RED)./$(OBJ_PATH), cleaned$(EOC)\n"
 	@$(MAKE) --no-print-directory -j$(NUMPROC) $(NAME)
 
 re	:	fclean
 	@$(MAKE) --no-print-directory -j$(NUMPROC) $(NAME)
 
-.PHONY: all fast libft.a libmlx.a clean fclean re
+.PHONY: all fast libft.a ref clean fclean re
 
 GRN =	\033[0;32m
 RED =	\033[0;31m
