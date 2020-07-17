@@ -34,4 +34,6 @@ void	conversions(char c, t_printf *f, va_list ap)
 		print_percent(f);
 	else if (c == 'b')
 		print_binary(f, ap);
+	else if (c == 'n')
+		numer(f, ap);
 }

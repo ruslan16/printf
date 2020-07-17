@@ -14,8 +14,15 @@
 
 int	main ()
 {
-	printf("{%05.*d}", -15, 42);
-	ft_printf("{%05.*d}", -15, 42);
+	int j;
+	int *i;
+
+	j = 0;
+	i = &j;
+	printf("%n\n", i);
+	printf("%d\n", i);
+	ft_printf("%n\n", i);
+	printf("%d\n", i);
 	return (0);
 }
 

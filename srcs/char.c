@@ -60,30 +60,9 @@ void	charnull(t_printf *f)
 		f->n_print += write(1, "", 1);
 }
 
-void	right_char(t_printf *f, char c)
+void    print_char(t_printf *f, va_list ap)
 {
-	char w;
-
-	if (f->zero)
-		w = '0';
-	else
-		w = ' ';
-	while (f->width > 0)
-		f->n_print += write(1, &w, 1);
-	f->n_print += write(1, &c, 1);
-}
-
-void	left_char(t_printf *f, char c)
-{
-	f->n_print += write(1, &c, 1);
-	while (f->width-- > 0)
-		f->n_print += write(1, " ", 1);
-}
-
-void	print_char(t_printf *f, va_list ap)
-{
-	char	c;
-	int		n;
+	char    c;
 
 	c = (unsigned char)va_arg(ap, int);
 	if (c == 0)
@@ -94,11 +73,19 @@ void	print_char(t_printf *f, va_list ap)
 	if (f->width > 0)
 	{
 		f->width -= 1;
-		if (f->minus == 1)
-			left_char(f, c);
+		f->n_print += f->width;
+		if (f->minus == 0)
+		{
+			(f->zero == 1) ? writezeros(f->width) : writespace(f->width);
+			f->n_print += write(1, &c, 1);
+		}
 		else
-			right_char(f, c);
+		{
+			write(1, &c, 1);
+			writespace(f->width);
+		}
 	}
 	else
 		f->n_print += write(1, &c, 1);
 }
+
