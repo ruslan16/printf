@@ -81,7 +81,7 @@ void	print_char(t_printf *f, va_list ap)
 		}
 		else
 		{
-			write(1, &c, 1);
+			f->n_print += write(1, &c, 1);
 			writespace(f->width);
 		}
 	}
