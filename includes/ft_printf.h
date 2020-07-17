@@ -53,6 +53,9 @@ void			check_flags(const char *format, t_printf *f);
 void			conversions(char c, t_printf *f, va_list ap);
 
 void			print_char(t_printf *f, va_list ap);
+void			left_char(t_printf *f, char c);
+void			right_char(t_printf *f, char c);
+void			charnull(t_printf *f);
 void			print_percent(t_printf *f);
 void			print_string(t_printf *f, va_list ap);
 void			left_string(t_printf *f, char *str, int len);
