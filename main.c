@@ -14,15 +14,8 @@
 
 int	main ()
 {
-	int j;
-	int *i;
-
-	j = 0;
-	i = &j;
-	printf("%n\n", i);
-	printf("%d\n", i);
-	ft_printf("%n\n", i);
-	printf("%d\n", i);
+	printf ("\033[0;31m test \033[0m\n");
+	ft_printf("%y");
 	return (0);
 }
 

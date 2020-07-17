@@ -31,8 +31,8 @@
 # define J				5
 # define Z				6
 # define BIGL			7
-# define ALLPREOBR	"cspdiouxXfybn%"
-# define ALLSYM "cspdiouxXfybn%#-+ .*0123456789hLljz"
+# define ALLPREOBR	"cspdiouxXfybnK%"
+# define ALLSYM "cspdiouxXfybnK%#-+ .*0123456789hLljz"
 # define ALLFLAGS "0+# -"
 # define ALLMODIF "hlLjz"
 # define LOWER 20
@@ -107,5 +107,7 @@ void			writespace(int n);
 void			error(void);
 long double		power(intmax_t n, int k);
 void			numer(t_printf *f, va_list ap);
+void			color(t_printf *f, va_list ap);
+void			palitra();
 
 #endif

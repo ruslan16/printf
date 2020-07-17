@@ -12,6 +12,22 @@
 
 #include "ft_printf.h"
 
+void	conversion2(char c, t_printf *f, va_list ap)
+{
+	if (c == 'f')
+		print_float(f, ap);
+	else if (c == '%')
+		print_percent(f);
+	else if (c == 'b')
+		print_binary(f, ap);
+	else if (c == 'n')
+		numer(f, ap);
+	else if (c == 'K')
+		color(f, ap);
+	else if (c == 'y')
+		palitra(f);
+}
+
 void	conversions(char c, t_printf *f, va_list ap)
 {
 	if (c == 'c')
@@ -28,12 +44,6 @@ void	conversions(char c, t_printf *f, va_list ap)
 		print_unsigned(f, ap, 0);
 	else if (c == 'x' || c == 'X')
 		print_hexa(f, ap, c);
-	else if (c == 'f')
-		print_float(f, ap);
-	else if (c == '%')
-		print_percent(f);
-	else if (c == 'b')
-		print_binary(f, ap);
-	else if (c == 'n')
-		numer(f, ap);
+	else
+		conversion2(c, f, ap);
 }
