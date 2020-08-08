@@ -24,6 +24,7 @@ int		ft_printf(const char *format, ...)
 	int			len_form;
 	t_printf	*f;
 
+	len_write = 0;
 	len_form = ft_strlen(format);
 	if (!(f = (t_printf*)malloc(sizeof(t_printf))))
 		return (0);
@@ -31,11 +32,12 @@ int		ft_printf(const char *format, ...)
 	va_start(ap, format);
 	if (!format[0])
 	{
+	  	free(f);
 		error();
 		return (0);
 	}
 	if (len_form == 1 && format[0] == '%')
-		return (0);
+		error();
 	else
 		len_write = ft_parsing(format, f, ap);
 	va_end(ap);
